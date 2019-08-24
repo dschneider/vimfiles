@@ -8,6 +8,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdtree'
+Plug 'ycm-core/YouCompleteMe'
+
+" Language Highlighting
+Plug 'guns/vim-clojure-static'
 
 " Colorschemes
 Plug 'tomasr/molokai'
