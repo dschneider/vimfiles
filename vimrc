@@ -9,6 +9,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdtree'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
 " Language Highlighting
 Plug 'guns/vim-clojure-static'
@@ -22,7 +24,7 @@ Plug 'jacoborus/tender.vim'
 call plug#end()
 
 colorscheme afterglow
-set guifont=Fira\ Code:h12
+set guifont=Fira\ Code:h16
 
 " ----------
 " Leader key
@@ -90,3 +92,19 @@ inoremap <right> <nop>
 
 nnoremap <leader>o :Files<Cr>
 nmap <silent> <leader>p :NERDTreeToggle<cr>%
+noremap <space> :
+
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
