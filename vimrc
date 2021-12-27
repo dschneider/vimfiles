@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " Language Highlighting
 Plug 'guns/vim-clojure-static'
@@ -39,8 +40,9 @@ syntax on
 filetype plugin indent on
 
 set encoding=utf-8
-set backspace=2   " Backspace deletes like most programs in insert mode
-set nocompatible  " Use Vim settings, rather then Vi settings
+set backspace=2    " Backspace deletes like most programs in insert mode
+" set nocompatible   " Use Vim settings, rather then Vi settings
+set iskeyword+=.,- " Treat dots and hyphens as a word boundary
 set nobackup
 set autoindent
 set nowritebackup
